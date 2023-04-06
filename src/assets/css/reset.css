@@ -1,0 +1,114 @@
+/* 把我们所有标签的内外边距清零 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* em 和 i 斜体的文字不倾斜 */
+em,
+i {
+    font-style: normal
+}
+
+/* 去掉li 的小圆点 */
+li {
+    list-style: none
+}
+
+img {
+    /* border 0 照顾低版本浏览器 如果 图片外面包含了链接会有边框的问题 */
+    border: 0;
+    /* 取消图片底侧有空白缝隙的问题 */
+    vertical-align: middle
+}
+
+button {
+    /* 当我们鼠标经过button 按钮的时候，鼠标变成小手 */
+    cursor: pointer
+}
+
+a {
+    /* color: #666; */
+    text-decoration: none
+}
+
+/* a:hover {
+    color: #c81623
+} */
+
+button,
+input {
+    font-family: 'SmileySans';
+}
+
+
+@font-face {
+    font-family: 'SmileySans';
+    src: url('../font/SmileySans-Oblique.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    /* CSS3 抗锯齿形 让文字显示的更加清晰 */
+    -webkit-font-smoothing: antialiased;
+    background-color: #fff;
+    font-family: 'SmileySans';
+}
+
+
+.hide,
+.none {
+    display: none
+}
+
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* 关闭input边框 */
+
+.no_border input:focus {
+    border-style: none;
+    outline: none;
+}
+
+
+.no_border input {
+    border: none;
+}
+.bg_color{
+    background-color: #fcfbf2;
+}
+
+
+:root {
+    /* 主题色 */
+    --color-balck: #220901;
+    --color-white: #FEFAE0;
+    /* 字体大小 */
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-xl: 1.25rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.75rem;
+    --text-7xl: 4.5rem;
+    --text-8xl: 6rem;
+    --text-9xl: 8rem;
+}
