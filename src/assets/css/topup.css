@@ -1,0 +1,66 @@
+* {
+    color: var(--color-p-100);
+}
+
+.bg{
+    height: 100vh;
+    background-color: var(--color-p-500);
+}
+main aside { 
+    background-color: var(--color-p-400);
+    padding: .6rem .6rem 0;
+    font-size: var(--text-2xl);
+    display: flex;
+    justify-content: space-between;
+}
+
+main section{
+    padding: 1rem;
+    margin-bottom: .3rem;
+    /* border-radius: 1rem; */
+    color: var(--color-white);
+}
+
+main .balance_box{
+    color: var(--color-white);
+    font-size: var(--text-4xl);
+    background-color: var(--color-p-400);
+
+}
+main .balance_box span{
+    color:  var(--color-white);
+    padding-right: 1rem;
+    /* border-right: .2rem solid var(--color-white); */
+
+}
+
+main .top_up_button_box{
+
+}
+
+main .top_up_button_box ul{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap:1rem;
+}
+
+main .top_up_button_box ul li{
+    text-align: center;
+    border-radius: .4rem;
+    padding: .4rem 0;
+    font-size: var(--text-3xl);
+    color: var(--color-black);
+    background-color: var(--color-white);
+
+}
+
+main  .submit{
+    background-color: var(--color-white);
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    font-size: var(--text-3xl);
+    font-weight: bold;
+    color: var(--color-black);
+    border-radius: .4rem;
+}
