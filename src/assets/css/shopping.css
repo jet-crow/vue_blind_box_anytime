@@ -27,7 +27,7 @@ aside h1 {
 
 aside .danmu_box {
     flex: 1;
-    background-color: var(--color-p-400);
+    background-image: linear-gradient(to right,var(--color-p-300),var(--color-p-400),var(--color-p-400)  );
     /* box-sizing: border-box; */
     border: .2rem solid var(--color-p-100);
     border-radius: .6rem;
@@ -62,6 +62,7 @@ aside .danmu_box .danmu {
 main{
     background-color: var(--color-p-500);
     padding: 1rem;
+    padding-bottom: 4.5rem; /* 修改底栏高度 */
 }
 main ul{
     display: grid;
@@ -95,10 +96,31 @@ main ul li .goods_content span{
 }
 
 main ul li .goods_content .goods_title{
-    font-size: var(--text-xl);
+    font-size: var(--text-base);
+    padding: .2rem 0;
 }
 
 main ul li .goods_content .goods_type{
     font-size: var(--text-2xl);
     font-weight: bold;
+}
+
+footer{
+    height: 4rem;
+    background-color: var(--color-p-500);
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem 1rem 0 1rem;
+}
+footer .buy_button{
+    background-color: var(--color-p-100);
+    background-image: linear-gradient(to right,var(--color-p-300),var(--color-p-100),var(--color-p-200)  );
+
+    font-size: var(--text-2xl);
+    text-align: center;
+    padding: .3rem;
+    color: var(--color-black);
+    border-radius: 2rem;
 }
