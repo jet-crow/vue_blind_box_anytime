@@ -1,7 +1,8 @@
 main {
     width: 100vw;
     height: 100vh;
-    background-color: var(--color-p-100);
+    background-color: var();
+    background-image: linear-gradient(var(--color-p-100),var(--color-p-100),var(--color-p-300)  );
     display: flex;
     flex-direction: column;
     justify-content: center;

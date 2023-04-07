@@ -1,0 +1,104 @@
+* {
+    color: var(--color-p-100);
+}
+
+nav {
+    background-color: var(--color-p-500);
+    padding: .6rem .6rem 0;
+    font-size: var(--text-2xl);
+    display: flex;
+    justify-content: space-between;
+}
+
+aside {
+    background-color: var(--color-p-500);
+    display: flex;
+    align-items: center;
+    padding: .6rem;
+    padding-left: 0;
+}
+
+aside h1 {
+    padding:0 1.6rem;
+    /*!!!!!!!注意！*/
+    font-size: var(--text-4xl);
+
+}
+
+aside .danmu_box {
+    flex: 1;
+    background-color: var(--color-p-400);
+    /* box-sizing: border-box; */
+    border: .2rem solid var(--color-p-100);
+    border-radius: .6rem;
+    height: 6rem;
+    overflow: hidden;
+}
+
+aside .danmu_box ul {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 .5rem;
+    padding-top: .4rem;
+
+}
+
+aside .danmu_box ul li {
+    text-align: right;
+    padding-bottom: .4rem;
+}
+
+aside .danmu_box .danmu {
+    background-color: var(--color-p-100);
+    font-size: var(--text-base);
+    border-radius: .2rem;
+    color: var(--color-p-500);
+    padding: .1rem .8rem;
+
+}
+
+main{
+    background-color: var(--color-p-500);
+    padding: 1rem;
+}
+main ul{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap:.4rem;
+    overflow: hidden;
+}
+
+main ul li{
+    border: .1rem solid var(--color-white);
+    border-radius: .4rem;
+    background-color: var(--color-white);
+}
+
+main ul li .goods_img{
+    border-radius: .4rem;
+    width: 100%;
+    object-fit: cover;
+}
+
+main ul li .goods_content{
+    display: flex;
+    flex-direction: column;
+    padding: .2rem 0;
+}
+
+main ul li .goods_content span{
+    text-align: center;
+    color:var(--color-p-500);
+    
+}
+
+main ul li .goods_content .goods_title{
+    font-size: var(--text-xl);
+}
+
+main ul li .goods_content .goods_type{
+    font-size: var(--text-2xl);
+    font-weight: bold;
+}
