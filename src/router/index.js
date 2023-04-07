@@ -1,6 +1,8 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import LoginAndRegistered from '../views/LoginAndRegistered.vue'
 import Shopping from '../views/Shopping.vue'
+import Home from '../views/Home.vue'
+import TopUp from '../views/TopUp.vue'
 
 /* 
   //路由配置
@@ -20,6 +22,17 @@ const routes = [
     path: '/shopping',
     name: 'shopping',
     component: Shopping
+  },
+  ,
+  {
+    path: '/home',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/topup',
+    name: 'topup',
+    component: TopUp
   },
 ]
 
