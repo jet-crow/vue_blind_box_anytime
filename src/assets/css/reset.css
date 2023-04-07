@@ -39,13 +39,13 @@ a {
 
 button,
 input {
-    font-family: 'SmileySans';
+    font-family: 'playFont';
 }
 
 
 @font-face {
-    font-family: 'SmileySans';
-    src: url('../font/SmileySans-Oblique.ttf');
+    font-family: 'playFont';
+    src: url('../font/字帮玩酷体.ttf');
     font-weight: normal;
     font-style: normal;
 }
@@ -54,7 +54,7 @@ body {
     /* CSS3 抗锯齿形 让文字显示的更加清晰 */
     -webkit-font-smoothing: antialiased;
     background-color: #fff;
-    font-family: 'SmileySans';
+    font-family: 'playFont';
 }
 
 
@@ -96,8 +96,13 @@ body {
 
 :root {
     /* 主题色 */
-    --color-balck: #220901;
+    --color-balck: #100c1f;
     --color-white: #FEFAE0;
+    --color-p-500: #231942;
+    --color-p-400: #5E548E;
+    --color-p-300: #9F86C0;
+    --color-p-200: #BE95C4;
+    --color-p-100: #E0B1CB;
     /* 字体大小 */
     --text-xs: 0.75rem;
     --text-sm: 0.875rem;
@@ -111,4 +116,5 @@ body {
     --text-7xl: 4.5rem;
     --text-8xl: 6rem;
     --text-9xl: 8rem;
+
 }

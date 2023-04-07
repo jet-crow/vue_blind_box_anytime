@@ -15,7 +15,7 @@ module.exports = defineConfig({
     //css相关配置
     css: {
         //是否使用css分离插件ExtractTextPlugin
-        extract: true,
+        // extract: true,
         //开启CSS sourcemaps?
         sourceMap: false,
     },

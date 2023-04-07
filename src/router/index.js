@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import Login from '../views/Login.vue'
+import LoginAndRegistered from '../views/LoginAndRegistered.vue'
 
 /* 
   //路由配置
@@ -12,8 +12,8 @@ import Login from '../views/Login.vue'
 const routes = [
   {
     path: '/',
-    name: 'login',
-    component: Login
+    name: 'loginandregistered',
+    component: LoginAndRegistered
   },
 ]
 
