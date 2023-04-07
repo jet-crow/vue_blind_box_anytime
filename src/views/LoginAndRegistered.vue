@@ -1,6 +1,8 @@
 <template>
     <main>
         <div class="form_box">
+            <h1>随时盲盒</h1>
+
             <label class="form_item no_border">
                 <input v-model="user" placeholder="usernames" />
                 <!-- <span>&nbsp</span> -->

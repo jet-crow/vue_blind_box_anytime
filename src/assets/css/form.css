@@ -4,18 +4,27 @@ main {
     background-color: var(--color-p-100);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 /* form_box start */
 .form_box{
     width: 100vw;
     border-top-left-radius: 0.8rem;
-    background-color: var(--color-p-200);
+    /* background-color: var(--color-p-200); */
     display: flex;
     flex-direction: column;
-    padding: 2rem;
+    padding: 0 2rem;
+
 }
+
+.form_box h1{
+    font-size: var(--text-5xl);
+    padding-bottom: 2rem;
+    color: var(--color-p-500);
+}
+
+
 .form_box .form_item{
     display: flex;
     flex-direction: column;
