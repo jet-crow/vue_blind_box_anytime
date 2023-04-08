@@ -117,7 +117,6 @@ footer{
 footer .buy_button{
     background-color: var(--color-p-100);
     background-image: linear-gradient(to right,var(--color-p-300),var(--color-p-100),var(--color-p-200)  );
-
     font-size: var(--text-2xl);
     text-align: center;
     padding: .3rem;

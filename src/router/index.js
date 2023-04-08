@@ -1,8 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import LoginAndRegistered from '../views/LoginAndRegistered.vue'
-import Shopping from '../views/Shopping.vue'
-import Home from '../views/Home.vue'
-import TopUp from '../views/TopUp.vue'
 
 /* 
   //路由配置
@@ -21,18 +18,23 @@ const routes = [
   {
     path: '/shopping',
     name: 'shopping',
-    component: Shopping
+    component: () => import('../views/Shopping.vue')
   },
   ,
   {
     path: '/home',
     name: 'home',
-    component: Home
+    component: () => import('../views/Home.vue')
   },
   {
     path: '/topup',
     name: 'topup',
-    component: TopUp
+    component: () => import('../views/TopUp.vue')
+  },
+  {
+    path: '/test',
+    name: 'test',
+    component: () => import('../views/Test.vue')
   },
 ]
 
