@@ -16,6 +16,11 @@ const routes = [
     component: LoginAndRegistered
   },
   {
+    path: '/index',
+    name: 'index',
+    component: ()=>import('../views/Index.vue')
+  },
+  {
     path: '/shopping',
     name: 'shopping',
     component: () => import('../views/Shopping.vue')

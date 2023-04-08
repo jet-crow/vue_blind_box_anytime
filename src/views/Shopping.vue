@@ -45,7 +45,7 @@
     </div>
     <!-- 大图展示  -->
     <div class="good_item" v-show="showGoodItem">
-        <p class="winning_msg" v-show="isLuckyDraw">恭喜你抽中了{{ goodItem?.itemTitle }}</p>
+        <p class="winning_msg" v-show="isLuckyDraw">恭喜您抽中了{{ goodItem?.itemTitle }}</p>
         <van-popup v-model:show="showGoodItem" round :style="{ width: '350px' }">
             <img :src="$getImgUrl(goodItem.itemImg)" class="good_item_img" />
         </van-popup>

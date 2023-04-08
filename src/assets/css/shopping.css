@@ -14,7 +14,7 @@ aside {
     background-color: var(--color-p-500);
     display: flex;
     align-items: center;
-    padding: .6rem;
+    /* padding: .6rem; */
     padding-left: 0;
 }
 
@@ -145,7 +145,7 @@ footer .buy_button {
 }
 
 .close_good {
-    position: absolute;
+    position: fixed;
     left: calc(50% - 1.5rem);
     top: calc(50% + 175px + 1.5rem);
     font-size: var(--text-5xl);
@@ -154,7 +154,7 @@ footer .buy_button {
 
 .good_item .winning_msg {
     text-align: center;
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: calc(50% - 175px - var(--text-4xl) - 1rem);
     font-size: var(--text-4xl);

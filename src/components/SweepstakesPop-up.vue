@@ -1,14 +1,9 @@
 <!-- 抽奖弹窗 -->
 <!-- 绑定isShow 传imgs数据 -->
-<!-- 
-    手动写定时器，200ms切换一次
-    当index到item.length就反向
-    当index到0就反向
-
- -->
+<!-- 现在item宽度为200 -->
 <template>
     <van-popup :show="show" round class="lucky_draw_box">
-        <van-swipe :duration="duration" ref="swipe" :height="220" :loop="false" class="goods_box" vertical
+        <van-swipe :duration="duration" ref="swipe" :height="200" :loop="false" class="goods_box" vertical
             :show-indicators="false" @change="changeSwipeIndex">
             <van-swipe-item>
                 <van-image fit="cover" :src="$getImgUrl(goodsData[goodsData.length - 1].itemImg)" />
@@ -22,7 +17,7 @@
                 <van-image fit="cover" :src="$getImgUrl(goodsData[0].itemImg)" />
             </van-swipe-item>
         </van-swipe>
-        <div class="mask"></div>
+        <!-- <div class="mask"></div> -->
         <div class="selected_border"></div>
         <button @click="endOfLottery" class="end_button">暂停 {{ time }}s</button>
     </van-popup>
@@ -91,29 +86,29 @@ const endOfLottery = () => {
 
 <style>
 .lucky_draw_box {
-    width: 220px;
-    height: 700px;
+    width: 200px;
+    height: 640px;
 }
 
 .mask {
     top: 0;
-    width: 220px;
-    height: 660px;
+    width: 200px;
+    height: 600px;
     opacity: 0;
     position: absolute;
 }
 
 .goods_box {
     /* border: 1px solid; */
-    height: 660px;
+    height: 600px;
 }
 
 .selected_border {
     position: absolute;
     width: 100%;
-    height: 220px;
+    height: 200px;
     border: 5px solid #f65f5f;
-    top: 220px;
+    top: 200px;
 }
 
 /* 左箭头 */
@@ -125,7 +120,7 @@ const endOfLottery = () => {
     top: calc(50% - 3.375rem);
     left: calc(50% - 110px - 65px);
     z-index: 3000;
-    position: absolute;
+    position: fixed;
     animation: animationArrowLeft .2s infinite alternate;
 }
 
@@ -139,7 +134,7 @@ const endOfLottery = () => {
     right: calc(50% - 110px - 65px);
     /* left: 50%; */
     z-index: 3000;
-    position: absolute;
+    position: fixed;
     animation: animationArrowRight .2s infinite alternate;
 }
 
@@ -165,11 +160,12 @@ const endOfLottery = () => {
 
 .end_button {
     width: 100%;
+    height: 40px;
     background-color: var(--color-p-100);
     background-image: linear-gradient(to right, var(--color-p-300), var(--color-p-100), var(--color-p-200));
     font-size: var(--text-2xl);
     text-align: center;
-    padding: .3rem;
     color: var(--color-black);
+    border: none;
 }
 </style>
