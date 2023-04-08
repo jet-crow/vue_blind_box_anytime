@@ -24,7 +24,7 @@
     </aside>
     <main>
         <ul>
-            <li v-for="(item, index) in goodsData">
+            <li v-for="(item, index) in goodsData" :class="{ 'goods_hidden_type': item.isRare }" @click="lookGood(item)">
                 <img class="goods_img" :src=$getImgUrl(item.itemImg) />
                 <div class="goods_content">
                     <span class="goods_title">{{ item.itemTitle }}</span>
@@ -43,7 +43,14 @@
         <!-- 是否显示，hitIndex：命中奖品的坐标，goodsData：所有奖品，@end 结束返回中奖的item -->
         <SweepstakesPopUp v-model:show="show" :hitIndex="hitIndex" :goodsData="goodsData" @end="luckyDrawEnd" />
     </div>
-    <!--  -->
+    <!-- 大图展示  -->
+    <div class="good_item" v-show="showGoodItem">
+        <p class="winning_msg" v-show="isLuckyDraw">恭喜你抽中了{{ goodItem?.itemTitle }}</p>
+        <van-popup v-model:show="showGoodItem" round :style="{ width: '350px' }">
+            <img :src="$getImgUrl(goodItem.itemImg)" class="good_item_img" />
+        </van-popup>
+        <van-icon name="close" class="close_good" @click="showGoodItem = false" />
+    </div>
 </template>
 <script setup>
 import SweepstakesPopUp from '@/components/SweepstakesPop-up.vue';
@@ -125,12 +132,25 @@ const show = ref(false);
 const hitIndex = ref();
 const startLuckyDraw = () => {
     setTimeout(() => {//模拟中将的编号
-        hitIndex.value = 5;
+        hitIndex.value = 10;
     }, 1000)
     show.value = true;
 }
-const luckyDrawEnd = (end) => {//中奖的数据
-    console.log(end);
+
+//大图展示
+const showGoodItem = ref(false);
+const goodItem = ref();
+const isLuckyDraw = ref(false);
+const lookGood = (item) => {
+    showGoodItem.value = true;
+    isLuckyDraw.value = false;
+    goodItem.value = item;
 }
+const luckyDrawEnd = (end) => {//中奖的数据
+    showGoodItem.value = true;
+    isLuckyDraw.value = true
+    goodItem.value = end;
+}
+//
 </script>
 <style scoped src="@/assets/css/shopping.css"></style>

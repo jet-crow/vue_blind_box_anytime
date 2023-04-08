@@ -44,7 +44,7 @@ const duration = ref(100)// 过度效果的速度
 let autoSwipe; // 计时器
 let direction = true; //下一张or上一张
 //倒计时
-const time = ref(3)
+const time = ref(10)
 const changeSwipeIndex = (index) => {
     swipeIndex.value = index;
 }
@@ -59,7 +59,7 @@ onMounted(() => {
             clearTimeout(endTime);
             endOfLottery();
         }
-        console.log(time.value);
+        // console.log(time.value);
     }, 1000)
 })
 //切换滑块
