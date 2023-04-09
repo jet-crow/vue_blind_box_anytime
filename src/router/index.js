@@ -42,6 +42,11 @@ const routes = [
     component: () => import('../views/MyBlindBox.vue')
   },
   {
+    path: '/myAddress',
+    name: 'myAddress',
+    component: () => import('../views/MyAddress.vue')
+  },
+  {
     path: '/test',
     name: 'test',
     component: () => import('../views/Test.vue')
