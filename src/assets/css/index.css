@@ -1,0 +1,125 @@
+nav,
+section,
+main {
+    background-color: var(--color-p-500);
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    font-size: var(--text-4xl);
+}
+
+nav span {
+    padding: .2rem .8rem;
+    line-height: 3rem;
+    font-weight: bold;
+    border-right: .16rem solid;
+    border-bottom: .16rem solid;
+    border-bottom-right-radius: 1rem;
+    color: var(--color-p-100);
+}
+
+nav .van-icon {
+    color: var(--color-p-100);
+    font-size: var(--text-3xl);
+    font-weight: bold;
+    padding: .6rem;
+    border-left: .16rem solid;
+    border-bottom: .16rem solid;
+    border-bottom-left-radius: 1rem;
+}
+
+/* 选项 */
+section {
+    width: 100%;
+    padding-top: 1.2rem;
+    display: flex;
+}
+
+section>button {
+    font-weight: bold;
+    border: .1rem solid var(--color-p-200);
+    color: var(--color-p-500);
+    border-radius: 0.2rem;
+    padding: 0.1rem 0.8rem;
+    margin-left: .5rem;
+}
+
+section>.btn_selected {
+    border: .1rem solid var(--color-p-200);
+    background-color: var(--color-p-100);
+    color: var(--color-p-500);
+}
+
+.input_box {
+    width: 9rem;
+    position: relative;
+}
+
+.input_box>input {
+    width: inherit;
+    border: .1rem solid var(--color-p-200);
+    border-radius: 0.5rem;
+    padding: 0.1rem 0.8rem;
+    margin-left: .4rem;
+}
+
+.input_box>.van-icon {
+    position: absolute;
+    color: var(--color-p-200);
+    font-weight: bold;
+    font-size: var(--text-xl);
+    top: calc(50% - var(--text-xl)/2);
+    right: 0;
+}
+
+/* main start */
+main {
+    padding: .8rem;
+}
+
+.series_box {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 1rem;
+}
+
+.series_item {
+    background-color: var(--color-white);
+    border-radius: .4rem;
+    overflow: hidden;
+}
+
+.series_img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.series_describe {
+    position: relative;
+    line-height: 2rem;
+}
+
+.series_describe>.name {
+    padding-left: .4rem;
+    font-weight: 500;
+}
+
+.series_describe>.price {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: fit-content;
+    height: 3rem;
+    line-height: 3.2rem;
+    text-align: center;
+    padding: 0 .3rem;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 20%;
+    background-color: var(--color-white);
+    /* background-color: var(--color-p-100); */
+    font-size: var(--text-2xl);
+    color: #f65f5f;
+    font-weight: bold;
+}
