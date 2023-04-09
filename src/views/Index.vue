@@ -4,7 +4,7 @@
         <van-icon name="user-o" />
     </nav>
     <section>
-        <button>综合</button>
+        <button class="btn_selected">综合</button>
         <button>新品</button>
         <button>价格↑</button>
         <div class="input_box">

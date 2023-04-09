@@ -1,0 +1,110 @@
+nav {
+    display: flex;
+    align-items: center;
+    line-height: 2.3rem;
+    background-color: var(--color-p-500);
+    font-size: var(--text-2xl);
+    color: var(--color-p-100);
+}
+
+nav>.title {
+    margin-left: .6rem;
+}
+
+main {
+    padding-top: .5rem;
+    min-height: calc(100vh - 2.3rem);
+    background-color: var(--color-p-500);
+}
+
+/* 系列 */
+article {
+    margin: 0 .5rem;
+    margin-bottom: .5rem;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-p-100);
+    border-radius: .8rem;
+    padding: .5rem;
+}
+
+article>.series_title {
+    font-size: var(--text-xl);
+    margin-bottom: .5rem;
+    padding-left: .3rem;
+    font-weight: bold;
+}
+
+/* 系列中的商品 */
+.good_box {
+    border-bottom: 1px solid var(--color-p-100);
+    position: relative;
+    display: flex;
+}
+
+.good_box>img {
+    margin-right: .3rem;
+    padding: .5rem;
+}
+
+.good_box>p {
+    margin-top: .5rem;
+}
+
+.good_box>.btn_box {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.btn_box button {
+    border: none;
+    background-color: var(--color-p-100);
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    color: var(--color-p-500);
+    padding: 0.1rem 0.8rem;
+}
+
+.btn_box button:first-child {
+    margin-right: .5rem;
+}
+
+.submit_box>p {
+    margin-left: .6rem;
+}
+
+.submit_box>.title {
+    margin-left: 0;
+    padding-bottom: .5rem;
+    font-weight: bold;
+    font-size: var(--text-2xl);
+    color: var(--color-p-300);
+    border-bottom: 1px dashed;
+}
+
+.submit_box>.contact_info {
+    line-height: 3rem;
+    font-size: var(--text-xl);
+}
+
+.submit_btn_box {
+    position: absolute;
+    right: 0;
+    bottom: .4rem;
+
+}
+
+.submit_btn_box>button {
+    font-size: var(--text-xl);
+    margin-right: .3rem;
+    padding: 0.1rem 0.8rem;
+    border-radius: 1rem;
+    background-color: var(--color-p-100);
+    border: .1rem solid var(--color-p-400);
+    color: var(--color-p-500);
+}
+
+.submit_btn_box>button:first-child {
+    background-color:transparent;
+    color: var(--color-p-400);
+}

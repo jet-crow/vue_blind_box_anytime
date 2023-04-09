@@ -18,7 +18,7 @@ const routes = [
   {
     path: '/index',
     name: 'index',
-    component: ()=>import('../views/Index.vue')
+    component: () => import('../views/Index.vue')
   },
   {
     path: '/shopping',
@@ -35,6 +35,11 @@ const routes = [
     path: '/topup',
     name: 'topup',
     component: () => import('../views/TopUp.vue')
+  },
+  {
+    path: '/myBindBox',
+    name: 'myBindBox',
+    component: () => import('../views/MyBlindBox.vue')
   },
   {
     path: '/test',
