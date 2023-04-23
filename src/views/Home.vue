@@ -4,10 +4,10 @@
             <section class="my_info">
                 <van-icon name="manager" />
                 <div class="my_info_right">
-                    <p class="name">ZeKunn</p>
+                    <p class="name">{{accountData.user}}</p>
                     <div class="wallet">
                         <van-icon name="gem" />
-                        <span class="balance">100</span>
+                        <span class="balance">{{ accountData.diamond }}</span>
                         <div class="top_up">充值</div>
                     </div>
                 </div>
@@ -44,6 +44,15 @@
     </div>
 </template>
 <script setup>
+import { ref, getCurrentInstance } from 'vue';
+const { proxy } = getCurrentInstance();
+
+// 商品数据
+let accountData = ref([]);
+proxy.$api.get('/account/user/queryUserInfo').then(res => {
+    console.log(res.data);
+    accountData.value = res.data;
+});
 
 const goodsData = {
     itemData: [{
