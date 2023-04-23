@@ -33,6 +33,8 @@ aside .danmu_box {
     border-radius: .6rem;
     height: 6rem;
     overflow: hidden;
+    margin-right: 1rem;
+    margin-top: .5rem;
 }
 
 aside .danmu_box ul {

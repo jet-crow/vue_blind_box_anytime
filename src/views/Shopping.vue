@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <van-icon name="arrow-left" />
+        <van-icon name="arrow-left" @click="goBack" />
         <van-icon name="question" />
     </nav>
     <aside>
@@ -15,7 +15,8 @@
     </aside>
     <main>
         <ul>
-            <li v-for="(item, index) in goodsData" :class="{ 'goods_hidden_type': (item.rare == 1 ? true : false) }" @click="lookGood(item)">
+            <li v-for="(item, index) in goodsData" :class="{ 'goods_hidden_type': (item.rare == 1 ? true : false) }"
+                @click="lookGood(item)">
                 <img class="goods_img" :src=$getImgUrl(item.goodsImg) />
                 <div class="goods_content">
                     <span class="goods_title">{{ item.goodsName }}</span>
@@ -26,7 +27,7 @@
     </main>
     <footer>
         <div class="buy_button" @click="startLuckyDraw">
-            一发入魂就是现在 {{seriesData.price}}¥
+            一发入魂就是现在 {{ seriesData.price }}¥
         </div>
     </footer>
     <!-- 抽奖弹窗 -->
@@ -44,18 +45,19 @@
     </div>
 </template>
 <script setup>
+import { showSuccessToast, showFailToast } from 'vant';
 import SweepstakesPopUp from '@/components/SweepstakesPop-up.vue';
-import { reactive,computed, ref, getCurrentInstance } from 'vue';
+import { reactive, computed, ref, getCurrentInstance } from 'vue';
 import router from "@/router";
 const { proxy } = getCurrentInstance();
 
-// 获取过来的goodId
+// 获取过来的seriesId
 const seriesId = router.currentRoute.value.query.seriesId;
 
 // 商品数据
 let goodsData = ref([]);
 proxy.$api.get('/goods/goodsData?seriesId=' + seriesId).then(res => {
-    console.log(res.data);
+    // console.log(res.data);
     goodsData.value = res.data;
 });
 
@@ -63,14 +65,14 @@ proxy.$api.get('/goods/goodsData?seriesId=' + seriesId).then(res => {
 let seriesData = ref([]);
 // 获取网页数据
 proxy.$api.get('/series/selectOne?seriesId=' + seriesId).then(res => {
-    console.log(res.data);
+    // console.log(res.data);
     seriesData.value = res.data;
 });
 
 // 弹幕数据
 let danmuData = ref([]);
 proxy.$api.get('/danmu/danmuData?seriesId=' + seriesId).then(res => {
-    console.log(res.data);
+    // console.log(res.data);
     danmuData.value = res.data;
 });
 
@@ -78,12 +80,36 @@ proxy.$api.get('/danmu/danmuData?seriesId=' + seriesId).then(res => {
 const show = ref(false);
 const hitIndex = ref();
 const startLuckyDraw = () => {
-    setTimeout(() => {//模拟中将的编号
-        //--------------------------------------
-        hitIndex.value = 1;
-    }, 1000)
-    show.value = true;
-}
+    proxy.$api.post('/account/user/luckyDraw', proxy.$qs.stringify({
+        'seriesId': seriesId,
+    })).then(res => {
+        if (res.data == '') {
+            console.log('老哥没钱！');
+            showFailToast('钻石不足');
+            // 跳转
+            router.push('/topup');
+            return;
+        }
+        console.log("你抽到了：");
+        console.log(res.data);
+        // 抽中的小li序号
+        let winNum = 0;
+        for (let i = 0; i < goodsData.value.length; i++) {
+            if (goodsData.value[i].goodsId == res.data.goodsId) {
+                winNum = i;
+            }
+        }
+        hitIndex.value = winNum;
+        show.value = true;
+        
+        // 刷新弹幕
+        proxy.$api.get('/danmu/danmuData?seriesId=' + seriesId).then(res => {
+            // console.log(res.data);
+            danmuData.value = res.data;
+        });
+    });
+
+};
 
 //大图展示
 const showGoodItem = ref(false);
@@ -93,12 +119,16 @@ const lookGood = (item) => {
     showGoodItem.value = true;
     isLuckyDraw.value = false;
     goodItem.value = item;
-}
+};
 const luckyDrawEnd = (end) => {//中奖的数据
     showGoodItem.value = true;
-    isLuckyDraw.value = true
+    isLuckyDraw.value = true;
     goodItem.value = end;
-}
-//
+};
+
+const goBack = () => {
+    console.log('go back');
+    window.history.go(-1);
+};
 </script>
 <style scoped src="@/assets/css/shopping.css"></style>
