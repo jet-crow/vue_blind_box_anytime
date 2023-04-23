@@ -5,6 +5,20 @@ const {VantResolver} = require('unplugin-vue-components/resolvers');
 const {ElementPlusResolver} = require("unplugin-vue-components/resolvers");
 
 module.exports = defineConfig({
+    devServer: {
+        proxy: {
+            '/api': {
+                //代理api
+                target: 'http://localhost:9090/', // 代理接口(注意只要域名就够了)
+                changeOrigin: true, //是否跨域
+                ws: true, // proxy websockets
+                pathRewrite: {
+                    //重写路径
+                    '^/api': '' //代理路径
+                }
+            }
+        }
+    },
     //基本路径
     //默认的'/'是绝对路径，如果不确定在根路径，改成相对路径'./'
     publicPath: './',
