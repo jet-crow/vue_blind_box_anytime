@@ -4,6 +4,10 @@ main {
     background-color: var(--color-p-500);
 }
 
+main {
+    min-height: 100vh;
+}
+
 nav {
     display: flex;
     justify-content: space-between;
