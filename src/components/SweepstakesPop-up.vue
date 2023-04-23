@@ -6,15 +6,15 @@
         <van-swipe :duration="duration" ref="swipe" :height="200" :loop="false" class="goods_box" vertical
             :show-indicators="false" @change="changeSwipeIndex">
             <van-swipe-item>
-                <van-image fit="cover" :src="$getImgUrl(goodsData[goodsData.length - 1].itemImg)" />
+                <van-image fit="cover" :src="$getImgUrl(goodsData[goodsData.length - 1].goodsImg)" />
             </van-swipe-item>
             <!-- 内容 -->
-            <van-swipe-item v-for="item in goodsData " :key="item.id">
-                <van-image fit="cover" :src="$getImgUrl(item.itemImg)" />
+            <van-swipe-item v-for="item in goodsData " :key="item.goodsId">
+                <van-image fit="cover" :src="$getImgUrl(item.goodsImg)" />
             </van-swipe-item>
 
             <van-swipe-item>
-                <van-image fit="cover" :src="$getImgUrl(goodsData[0].itemImg)" />
+                <van-image fit="cover" :src="$getImgUrl(goodsData[0].goodsImg)" />
             </van-swipe-item>
         </van-swipe>
         <!-- <div class="mask"></div> -->
