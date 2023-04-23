@@ -51,6 +51,10 @@ main .top_up_button_box ul li{
     font-size: var(--text-3xl);
     color: var(--color-black);
     background-color: var(--color-white);
+}
+
+main .top_up_button_box ul li span{
+    color: var(--color-black);
 
 }
 
@@ -63,4 +67,9 @@ main  .submit{
     font-weight: bold;
     color: var(--color-black);
     border-radius: .4rem;
+}
+
+main .top_up_button_box ul li.btn_selected {
+    background-color: var(--color-p-100);
+    color: var(--color-p-500);
 }
