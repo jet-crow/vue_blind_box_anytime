@@ -1,6 +1,6 @@
 <template>
     <nav>
-        <van-icon name="arrow-left" />
+        <van-icon name="arrow-left" @click="$router.back()"/>
         <span class="title">我的盲盒</span>
     </nav>
 
