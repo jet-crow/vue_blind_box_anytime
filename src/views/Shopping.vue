@@ -4,7 +4,7 @@
         <van-icon name="question" />
     </nav>
     <aside>
-        <h1>森林系列</h1>
+        <h1>{{seriesData.seriesName}}</h1>
         <div class="danmu_box">
             <ul>
                 <li v-for="(item, index) in danmuData">
