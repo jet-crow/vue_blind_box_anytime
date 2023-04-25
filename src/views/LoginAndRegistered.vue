@@ -9,13 +9,13 @@
                 <span v-show="!checkInput.user">账号有误</span>
             </label>
             <label class="form_item no_border">
-                <input v-model="password" placeholder="password" />
+                <input v-model="password" type="password" placeholder="password" />
                 <span v-show="checkInput.password">&nbsp</span>
                 <span v-show="!checkInput.password">密码有误</span>
             </label>
             <!-- 注册part -->
             <label class="form_item no_border" v-show="!isLogin">
-                <input v-model="againPassword" placeholder="again password" />
+                <input v-model="againPassword" type="password" placeholder="again password" />
                 <span v-show="checkInput.againPassword">&nbsp</span>
                 <span v-show="!checkInput.againPassword">密码不一致</span>
             </label>
