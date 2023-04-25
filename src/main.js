@@ -11,17 +11,6 @@ const app = createApp(App);
 axios.defaults.baseURL = '/api';
 // axios.defaults.baseURL = 'http://localhost:9090';
 
-/* 全局方法 */
-//获取本地图片
-/* 
-使用：
- css请使用行内样式
- :style="{backgroundImage:`url(${$getImgUrl('loginBg.jpg')})`}"
- js：请调用
-    $getImgUrl('xxx.jpg')
-*/
-
-
 /* 获取cookie的token放到headers中 */
 axios.interceptors.request.use(
     function (config) {
