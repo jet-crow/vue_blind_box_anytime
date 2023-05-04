@@ -4,7 +4,7 @@
         <van-icon name="question" />
     </nav>
     <aside>
-        <h1>{{seriesData.seriesName}}</h1>
+        <h1>{{ seriesData.seriesName }}</h1>
         <div class="danmu_box">
             <ul>
                 <li v-for="(item, index) in danmuData">
@@ -24,6 +24,21 @@
                 </div>
             </li>
         </ul>
+        <div class="comments_box">
+            <h1 style="margin-bottom: .5rem;">留言</h1>
+            <el-input v-model="comments" placeholder="请输入的评论" clearable>
+                <template #append>
+                    <el-text style="color: var(--color-black); font-weight: bold;" @click="send">留言</el-text>
+                </template>
+            </el-input>
+            <div class="comments_msg">
+                <ul>
+                    <li v-for="i in  commentsData">
+                        {{ i.user }}：{{ i.msg }}
+                    </li>
+                </ul>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="buy_button" @click="startLuckyDraw">
@@ -47,10 +62,10 @@
 <script setup>
 import { showSuccessToast, showFailToast } from 'vant';
 import SweepstakesPopUp from '@/components/SweepstakesPop-up.vue';
-import { reactive, computed, ref, getCurrentInstance } from 'vue';
+import { computed, ref, getCurrentInstance } from 'vue';
 import router from "@/router";
 const { proxy } = getCurrentInstance();
-
+const comments = ref("");
 // 获取过来的seriesId
 const seriesId = router.currentRoute.value.query.seriesId;
 
@@ -76,6 +91,12 @@ proxy.$api.get('/danmu/danmuData?seriesId=' + seriesId).then(res => {
     danmuData.value = res.data;
 });
 
+//评论数据
+let commentsData = ref([]);
+proxy.$api.get('/comments/queryCommentsBySeries?seriesId=' + seriesId).then(r => {
+    commentsData.value = r.data;
+    console.log(r.data);
+})
 //抽奖弹窗是否显示
 const show = ref(false);
 const hitIndex = ref();
@@ -101,7 +122,7 @@ const startLuckyDraw = () => {
         }
         hitIndex.value = winNum;
         show.value = true;
-        
+
         // 刷新弹幕
         proxy.$api.get('/danmu/danmuData?seriesId=' + seriesId).then(res => {
             // console.log(res.data);
@@ -130,5 +151,37 @@ const goBack = () => {
     console.log('go back');
     window.history.go(-1);
 };
+//发送留言
+const send = () => {
+    if (comments.value.length == 0) {
+        proxy.$showFailToast("留言内容不能为空")
+        return false;
+    }
+    proxy.$api.post("/comments/user/addComments", proxy.$qs.stringify({
+        msg: comments.value,
+        seriesId: seriesId
+    })).then(r => {
+        if (r.data == "") {
+            proxy.$showFailToast("需要抽取过该系列才能留言喔~");
+            return false;
+        }
+        comments.value = "";
+        proxy.$showSuccessToast("留言成功√");
+        commentsData.value.push({
+            "msg": r.data.msg,
+            "user": localStorage.getItem("name"),
+            "commentId": r.data.commentId
+        })
+    })
+}
 </script>
 <style scoped src="@/assets/css/shopping.css"></style>
+
+<style>
+.comments_box .el-input-group__append {
+    background-color: var(--color-p-100);
+    background-image: linear-gradient(to right, var(--color-p-300), var(--color-p-100), var(--color-p-200));
+    color: var(--color-black);
+
+}
+</style>

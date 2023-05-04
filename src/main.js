@@ -11,7 +11,7 @@ const app = createApp(App);
 axios.defaults.baseURL = '/api';
 // axios.defaults.baseURL = 'http://localhost:9090';
 
-/* 获取cookie的token放到headers中 */
+/* 获取的token放到headers中 */
 axios.interceptors.request.use(
     function (config) {
         let token = localStorage.getItem("token");
